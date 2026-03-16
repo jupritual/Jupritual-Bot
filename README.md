@@ -1,8 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-bot/main/assets/avatar.png" width="80" height="80"/>
-
-<h1>Jupritual</h1>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-bot/main/assets/avatar.png" width="80" height="80"/><br/><h1>Jupritual</h1>
 
 **A production-grade Discord moderation & automation bot — built solo from scratch.**
 
