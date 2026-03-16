@@ -1,11 +1,12 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-bot/main/assets/banner.png" width="100%"/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-bot/main/assets/banner.jpg" width="100%"/>
 
 <br/>
 
 <br/>
 <img src="https://raw.githubusercontent.com/jupritual/Jupritual-bot/main/assets/avatar.png" width="80" height="80" style="border-radius:50%"/>
+
 ### Jupritual
 
 **A production-grade Discord moderation & automation bot — built solo from scratch.**
