@@ -1,14 +1,14 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-bot/main/assets/banner.jpg" width="100%"/>
+<img src="...banner..." width="100%" style="max-height:200px; object-fit:cover; border-radius:12px"/>
 
 <br/>
 
-<br/>
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-bot/main/assets/avatar.png" width="80" height="80" style="border-radius:50%"/>
+<img src="...avatar..." width="80" height="80"/>
 
-### Jupritual
+# Jupritual
 
+**A production-grade Discord moderation & automation bot — built solo from scratch.**
 **A production-grade Discord moderation & automation bot — built solo from scratch.**
 
 [![Top.gg](https://img.shields.io/badge/Listed%20on-Top.gg-ff3366?style=for-the-badge&logo=discord&logoColor=white)](https://top.gg/bot/1245248139699556394?s=071b865a14137)
