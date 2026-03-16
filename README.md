@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/jupritual/Jupritual-bot/main/assets/avatar.png" width="80" height="80"/>
 
-# Jupritual
+<h1>Jupritual</h1>
 
 **A production-grade Discord moderation & automation bot — built solo from scratch.**
 
