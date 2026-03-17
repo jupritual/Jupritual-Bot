@@ -277,6 +277,19 @@ View all currently locked channels in the server — select any channel from the
 
 </div>
 
+---
+
+### Purge — `j.purge [filter] [amount]`
+
+Delete messages with powerful filters — by user, keyword, embeds, bots, and more. Shows a confirmation with full message preview before deleting anything.
+
+<div align="center">
+
+**Confirmation + live message preview before deletion**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/purge-confirm.png" width="350"/>
+
+</div>
+
 </details>
 
 ---
