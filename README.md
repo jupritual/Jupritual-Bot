@@ -183,35 +183,45 @@ jupritual/
 <details>
 <summary><b>📸 Click to expand screenshots</b></summary>
 
-### Bot Info
-> Ping response showing uptime, latency, and 146 available commands
+## 🗳️ Vote-Based Moderation
 
-### Help Dashboard
-> Category dropdown with all 12 command groups
+> Let your mod team collectively decide — no single mod has to take the blame.
 
-### AFK System
-> Local/Global mode selection → AFK set confirmation → Welcome back summary with notes & pings
+---
 
-### Vote Ban
-> Live voting embed with upvote/downvote/abort — timer, mode, and real-time results
+### Vote Ban — `j.voteban @user [duration] [mode] [reason]`
 
-### Auto-Reaction Manager
-> Rule overview panel with create/list/settings/stats actions
+Starts a timed vote to ban a member. Requires majority upvotes from mods to execute.
 
-### Custom Role System
-> Trigger management panel → Embed customization with 10+ dynamic placeholders
+**Step 1 — Vote in progress**
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/voteban-progress.png" width="450"/>
 
-### Purge with Preview
-> Confirmation → preview of messages to be deleted → ephemeral result
+**Step 2 — Ban executed by community vote**
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/voteban-success.png" width="450"/>
 
-### Logging Configuration
-> Per-action channel routing across moderation, channels, and roles
+---
 
-### Welcome System
-> Guild Greet control panel with join/leave embeds + DM configuration
+### Vote Unban — `j.voteunban @user [duration] [mode] [reason]`
 
-### DM Toggle
-> Admin toggle for moderation DMs with last-toggled tracking
+Starts a vote to lift an existing ban. Same flow — mods vote, majority wins.
+
+**Step 1 — Vote in progress**
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/voteunban-progress.jpeg" width="450"/>
+
+**Step 2 — Unban executed by community vote**
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/voteunban-success.jpeg" width="450"/>
+
+---
+
+### Vote Kick — `j.votekick @user [duration] [mode] [reason]`
+
+Starts a vote to kick a member. If majority isn't reached — kick is cancelled automatically.
+
+**Step 1 — Vote in progress**
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/votekick-progress.jpeg" width="450"/>
+
+**Step 2 — Kick failed — not enough votes**
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/votekick-failed.png" width="450"/>
 
 </details>
 
