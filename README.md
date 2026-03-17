@@ -217,6 +217,24 @@ Starts a vote to lift an existing ban. Same flow — mods vote, majority wins.
 **Step 2 — Unban executed by community vote**<br/>
 <img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/voteunban-success.jpeg" width="350"/>
 
+</div>
+
+---
+
+### Vote Kick — `j.votekick @user [duration] [mode] [reason]`
+
+Starts a vote to kick a member. If majority isn't reached — kick is cancelled automatically.
+
+<div align="center">
+
+**Step 1 — Vote in progress**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/votekick-progress.jpeg" width="350"/><br/><br/>
+
+**Step 2 — Kick failed — not enough votes**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/votekick-failed.png" width="350"/>
+
+</div>
+
 ---
 
 ### Timeout List — `j.timeoutlist`
@@ -233,24 +251,6 @@ View all currently timed out members in the server with time remaining — selec
 
 **Step 3 — Detailed timeout info with untimeout & back actions**<br/>
 <img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/timeoutlist-details.jpeg" width="350"/>
-
-</div>
-
-</div>
-
----
-
-### Vote Kick — `j.votekick @user [duration] [mode] [reason]`
-
-Starts a vote to kick a member. If majority isn't reached — kick is cancelled automatically.
-
-<div align="center">
-
-**Step 1 — Vote in progress**<br/>
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/votekick-progress.jpeg" width="350"/><br/><br/>
-
-**Step 2 — Kick failed — not enough votes**<br/>
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/votekick-failed.png" width="350"/>
 
 </div>
 
