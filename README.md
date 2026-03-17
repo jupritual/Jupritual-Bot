@@ -193,11 +193,15 @@ jupritual/
 
 Starts a timed vote to ban a member. Requires majority upvotes from mods to execute.
 
-**Step 1 — Vote in progress**
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/voteban-progress.png" width="450"/>
+<div align="center">
 
-**Step 2 — Ban executed by community vote**
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/voteban-success.png" width="450"/>
+**Step 1 — Vote in progress**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/voteban-progress.png" width="350"/><br/><br/>
+
+**Step 2 — Ban executed by community vote**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/voteban-success.png" width="350"/>
+
+</div>
 
 ---
 
@@ -205,11 +209,15 @@ Starts a timed vote to ban a member. Requires majority upvotes from mods to exec
 
 Starts a vote to lift an existing ban. Same flow — mods vote, majority wins.
 
-**Step 1 — Vote in progress**
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/voteunban-progress.jpeg" width="450"/>
+<div align="center">
 
-**Step 2 — Unban executed by community vote**
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/voteunban-success.jpeg" width="450"/>
+**Step 1 — Vote in progress**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/voteunban-progress.jpeg" width="350"/><br/><br/>
+
+**Step 2 — Unban executed by community vote**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/voteunban-success.jpeg" width="350"/>
+
+</div>
 
 ---
 
@@ -217,11 +225,15 @@ Starts a vote to lift an existing ban. Same flow — mods vote, majority wins.
 
 Starts a vote to kick a member. If majority isn't reached — kick is cancelled automatically.
 
-**Step 1 — Vote in progress**
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/votekick-progress.jpeg" width="450"/>
+<div align="center">
 
-**Step 2 — Kick failed — not enough votes**
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/votekick-failed.png" width="450"/>
+**Step 1 — Vote in progress**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/votekick-progress.jpeg" width="350"/><br/><br/>
+
+**Step 2 — Kick failed — not enough votes**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/votekick-failed.png" width="350"/>
+
+</div>
 
 </details>
 
