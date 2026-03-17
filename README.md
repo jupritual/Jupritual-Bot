@@ -235,6 +235,10 @@ Starts a vote to kick a member. If majority isn't reached — kick is cancelled 
 
 </div>
 
+## 🔧 Moderation Tools
+
+> Full channel and member control — lock, inspect, and manage with interactive dropdowns.
+
 ---
 
 ### Timeout List — `j.timeoutlist`
