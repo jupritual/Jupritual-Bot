@@ -290,6 +290,110 @@ Delete messages with powerful filters — by user, keyword, embeds, bots, and mo
 
 </div>
 
+---
+
+### Snipe — `j.snipe [number]`
+
+Recover recently deleted messages — shows message content, who sent it, and who deleted it. Specify a number to recover multiple messages at once.
+
+<div align="center">
+
+**Deleted messages recovered with full details**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/snipe.jpeg" width="350"/>
+
+</div>
+
+---
+
+## ⚠️ Warning System
+
+> A full infraction tracking system — warn members, set automated actions at point thresholds, and track everything with IDs.
+
+---
+
+### Warn — `j.warn @user [points] [reason]`
+
+Warn a member with custom infraction points and reason. Each warn gets a unique infraction ID and shows current total active points.
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/warn.jpeg" width="350"/>
+
+</div>
+
+---
+
+### Set Warn Action — `j.setwarnaction`
+
+Configure automatic actions that trigger when a member reaches a points threshold — timeout, kick, ban, add/remove role, or custom message.
+
+<div align="center">
+
+**Step 1 — Current auto-actions overview**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/setwarnaction-overview.png" width="350"/><br/><br/>
+
+**Step 2 — Action configuration guide with placeholders**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/setwarnaction-guide.jpeg" width="350"/><br/><br/>
+
+**Step 3 — Choose action type dropdown**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/setwarnaction-dropdown.png" width="350"/><br/><br/>
+
+**Step 4 — Modal to set points threshold and duration**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/setwarnaction-modal.png" width="350"/><br/><br/>
+
+**Step 5 — Action added successfully**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/setwarnaction-success.png" width="350"/>
+
+</div>
+
+---
+
+### Warn Leaderboard — `j.warnleaderboard`
+
+Shows the most warned members in the server ranked by active infraction points.
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/warnleaderboard.png" width="350"/>
+
+</div>
+
+---
+
+### Remove Warn — `j.removewarn [infraction ID]`
+
+Remove a specific warning by its infraction ID. Points are deducted and the infraction is cleared from the member's record.
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/removewarn.png" width="350"/>
+
+</div>
+
+---
+
+### Check Warns — `j.checkwarns @user`
+
+View full warning history for a member — all infractions with IDs, points, reason, moderator, date, and active/expired status.
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/checkwarns.png" width="350"/>
+
+</div>
+
+---
+
+### Remove Points — `j.removepoints @user [points]`
+
+Remove a specific number of infraction points from a member. Automatically adjusts or clears infractions accordingly.
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/removepoints.png" width="350"/>
+
+</div>
+
 </details>
 
 ---
