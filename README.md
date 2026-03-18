@@ -235,6 +235,8 @@ Starts a vote to kick a member. If majority isn't reached — kick is cancelled 
 
 </div>
 
+---
+
 ## 🔧 Moderation Tools
 
 > Full channel and member control — lock, inspect, and manage with interactive dropdowns.
@@ -470,6 +472,96 @@ Remove a specific number of infraction points from a member. Automatically adjus
 </div>
 
 > Leave embed and Welcome DM setup follow the same step-by-step flow.
+
+---
+
+## 📋 Logging System
+
+> Route every moderation action to its own dedicated log channel — full audit trail with per-moderator activity summaries.
+
+---
+
+### Set Logging — `j.setlogging`
+
+Configure which channel each moderation action logs to. Every action type routes independently.
+
+<div align="center">
+
+**Step 1 — Full logging configuration overview**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/setlogging-config.png" width="350"/><br/><br/>
+
+**Step 2 — Select channel for each action type**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/setlogging-channel.png" width="350"/>
+
+</div>
+
+---
+
+### Mod Logs — `j.modlogs @moderator`
+
+View complete moderation history for any moderator — broken down by action type with full entry details and pagination.
+
+<div align="center">
+
+**Step 1 — Activity summary with action counts per type**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/modlogs-overview.png" width="350"/><br/><br/>
+
+**Step 2 — Dropdown to select action type**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/modlogs-dropdown.png" width="350"/><br/><br/>
+
+**Step 3 — Detailed log entries with target, action, and timestamp**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/modlogs-detail.png" width="350"/>
+
+</div>
+
+---
+
+## 💤 AFK System
+
+> One of the most feature-complete AFK systems available — global or local mode, drop notes, notify on return, full stats tracking.
+
+---
+
+### AFK — `j.afk [reason]`
+
+Set your AFK status with a reason. Choose local (this server only) or global (all servers). When someone pings you, they see your AFK status. Others can drop notes or subscribe to get notified when you return.
+
+<div align="center">
+
+**Step 1 — Choose local or global AFK mode**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/afk-settings.png" width="350"/><br/><br/>
+
+**Step 2 — AFK set confirmation with Notify & Drop Note options**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/afk-set.png" width="350"/><br/><br/>
+
+**Step 3 — Welcome back summary with pings received and notes left**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/afk-welcomeback.jpeg" width="350"/>
+
+</div>
+
+---
+
+### AFK List — `j.afklist`
+
+View all currently AFK members in the server — shows scope (local/global) and AFK info for each member.
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/afk-list.jpeg" width="350"/>
+
+</div>
+
+---
+
+### AFK Stats — `j.afkstats [@user]`
+
+View detailed AFK statistics — server AFK time, weekly AFK time, global AFK time, and total sessions.
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/afk-stats.png" width="350"/>
+
+</div>
 
 </details>
 
