@@ -713,6 +713,60 @@ Re-enable a command in the current channel.
 
 </div>
 
+🎭 Custom Role System
+
+Create trigger-based role commands, manage them from a central control panel, and fully customize the assign/remove embeds per trigger.
+
+
+Manage Custom Role — j.managecustomrole
+Aliases: j.customrolemanage, j.cr — Permission: Administrator
+Opens the Custom Role Control Panel — your central hub for viewing, adding, and deleting role triggers.
+<div align="center">
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-panel.png" width="350"/>
+</div>
+
+View Triggers
+Browse all existing triggers with a paginated dropdown. Select any trigger to see its linked role, creator, creation date, usage count, and available actions.
+<div align="center">
+Step 1 — Trigger list with paginated dropdown<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-viewtriggers.png" width="350"/><br/><br/>
+Step 2 — Full trigger info with actions<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-triggerdetail.jpeg" width="350"/>
+</div>
+
+Edit Embed
+Customize the embed shown when a role is assigned or removed. Supports dynamic placeholders like {user.name}, {guild.icon}, {role.mention}, {timestamp}, and more — with a live preview toggle.
+<div align="center">
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-editembed.jpeg" width="350"/>
+</div>
+
+Delete Trigger
+Select a trigger from the dropdown to delete it. Shows full trigger details and an irreversibility warning before you confirm.
+<div align="center">
+Step 1 — Select a trigger to delete<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-deletepanel.png" width="350"/><br/><br/>
+Step 2 — Trigger details + warning before confirm<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-deleteconfirm.png" width="350"/>
+</div>
+
+Add Trigger
+Select a role from the paginated dropdown, set a trigger name via modal — done. The command j.<triggername> @user is immediately usable.
+<div align="center">
+Step 1 — Select a role<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-addrole.png" width="350"/><br/><br/>
+Step 2 — Enter trigger name<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-settrigger.png" width="350"/><br/><br/>
+Step 3 — Trigger created<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-created.png" width="350"/>
+</div>
+
+Custom Role Panel — j.customrolepanel @member
+Permission: Manage Roles
+Assign or remove any configured role trigger for a member — no need to know the trigger name. The bot auto-detects whether to assign or remove based on the member's current roles.
+<div align="center">
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/customrolepanel.png" width="350"/>
+</div>
+
 </details>
 
 ---
