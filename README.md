@@ -183,6 +183,9 @@ jupritual/
 <details>
 <summary><b>📸 Click to expand screenshots</b></summary>
 
+<details>
+<summary><b>🗳️ Vote-Based Moderation</b></summary>
+
 ## 🗳️ Vote-Based Moderation
 
 > Let your mod team collectively decide — no single mod has to take the blame.
@@ -235,7 +238,12 @@ Starts a vote to kick a member. If majority isn't reached — kick is cancelled 
 
 </div>
 
+</details>
+
 ---
+
+<details>
+<summary><b>🔧 Moderation Tools</b></summary>
 
 ## 🔧 Moderation Tools
 
@@ -305,7 +313,12 @@ Recover recently deleted messages — shows message content, who sent it, and wh
 
 </div>
 
+</details>
+
 ---
+
+<details>
+<summary><b>⚠️ Warning System</b></summary>
 
 ## ⚠️ Warning System
 
@@ -396,7 +409,12 @@ Remove a specific number of infraction points from a member. Automatically adjus
 
 </div>
 
+</details>
+
 ---
+
+<details>
+<summary><b>🎉 Welcome System</b></summary>
 
 ## 🎉 Welcome System — `j.welcomesystem`
 
@@ -473,7 +491,12 @@ Remove a specific number of infraction points from a member. Automatically adjus
 
 > Leave embed and Welcome DM setup follow the same step-by-step flow.
 
+</details>
+
 ---
+
+<details>
+<summary><b>📋 Logging System</b></summary>
 
 ## 📋 Logging System
 
@@ -514,7 +537,12 @@ View complete moderation history for any moderator — broken down by action typ
 
 </div>
 
+</details>
+
 ---
+
+<details>
+<summary><b>💤 AFK System</b></summary>
 
 ## 💤 AFK System
 
@@ -563,7 +591,12 @@ View detailed AFK statistics — server AFK time, weekly AFK time, global AFK ti
 
 </div>
 
+</details>
+
 ---
+
+<details>
+<summary><b>🤖 Auto-Reaction System</b></summary>
 
 ## 🤖 Auto-Reaction System — `j.autoreaction`
 
@@ -579,193 +612,109 @@ View detailed AFK statistics — server AFK time, weekly AFK time, global AFK ti
 
 </div>
 
----
-
-### Creating a Rule — Step by Step
-
-<div align="center">
-
-**Step 1 — Set the trigger text**<br/>
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/autoreaction-step1-trigger.png" width="350"/><br/><br/>
-
-**Step 2 — Choose match type**<br/>
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/autoreaction-step2-matchtype.png" width="350"/><br/><br/>
-
-**Step 2 — Match type options: contains, starts with, ends with, exact**<br/>
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/autoreaction-step2-dropdown.png" width="350"/><br/><br/>
-
-**Step 3 — Add reactions (standard, static, animated)**<br/>
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/autoreaction-step3-reactions.jpeg" width="350"/><br/><br/>
-
-**Step 4 — Channel restrictions (specific or all)**<br/>
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/autoreaction-step4-channels.png" width="350"/><br/><br/>
-
-**Step 5 — User & role restrictions**<br/>
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/autoreaction-step5-users.png" width="350"/><br/><br/>
-
-**Step 6 — Advanced settings modal (cooldowns, auto-remove)**<br/>
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/autoreaction-step6-modal.png" width="350"/><br/><br/>
-
-**Step 6 — Advanced settings overview**<br/>
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/autoreaction-step6-advanced.png" width="350"/><br/><br/>
-
-**Step 7 — Final review before creating**<br/>
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/autoreaction-step7-review.png" width="350"/>
-
-</div>
+</details>
 
 ---
 
-### List Rules
+<details>
+<summary><b>🎭 Custom Role System</b></summary>
 
-<div align="center">
+## 🎭 Custom Role System
 
-**All active rules with trigger, emojis, channels, and cooldown**<br/>
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/autoreaction-listrules.png" width="350"/>
-
-</div>
+> Create trigger-based role commands, manage them from a central control panel, and fully customize the assign/remove embeds per trigger.
 
 ---
 
-### Rule Statistics
+### Manage Custom Role — `j.managecustomrole`
 
-<div align="center">
+**Aliases:** `j.customrolemanage`, `j.cr` — **Permission:** Administrator
 
-**Full stats — uses, top performing rules, emoji usage, restrictions breakdown**<br/>
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/autoreaction-stats.jpeg" width="350"/>
-
-</div>
-
----
-
-### Rule Management — Toggle, Edit, Delete, Test
-
-<div align="center">
-
-**Select any rule to toggle, edit, delete, view stats, or live test it**<br/>
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/autoreaction-manage.jpeg" width="350"/>
-
-</div>
-
----
-
-## ⚙️ Toggles & Restrictions
-
-> Full control over which commands run where — disable any command server-wide or restrict it to specific channels.
-
----
-
-### DM Toggle — `j.dmtoggle`
-
-Admins can toggle whether the bot sends DMs to members for moderation actions like bans, kicks, timeouts, and warns.
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/dmtoggle.png" width="350"/>
-
-</div>
-
----
-
-### Server-Wide Disable — `j.svdisable[command]`
-
-Disable any command completely across the entire server.
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/svdisable.png" width="350"/>
-
-</div>
-
----
-
-### Server-Wide Enable — `j.svenable[command]`
-
-Re-enable a previously disabled command server-wide.
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/svenable.png" width="350"/>
-
-</div>
-
----
-
-### Channel Disable — `j.disable[command]`
-
-Disable a command in the current channel only — still works in other channels.
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/disable.png" width="350"/>
-
-</div>
-
----
-
-### Channel Enable — `j.enable[command]`
-
-Re-enable a command in the current channel.
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/enable.png" width="350"/>
-
-</div>
-
-🎭 Custom Role System
-
-Create trigger-based role commands, manage them from a central control panel, and fully customize the assign/remove embeds per trigger.
-
-
-Manage Custom Role — j.managecustomrole
-Aliases: j.customrolemanage, j.cr — Permission: Administrator
 Opens the Custom Role Control Panel — your central hub for viewing, adding, and deleting role triggers.
+
 <div align="center">
+
 <img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-panel.png" width="350"/>
+
 </div>
 
-View Triggers
+---
+
+#### View Triggers
+
 Browse all existing triggers with a paginated dropdown. Select any trigger to see its linked role, creator, creation date, usage count, and available actions.
+
 <div align="center">
-Step 1 — Trigger list with paginated dropdown<br/>
+
+**Step 1 — Trigger list with paginated dropdown**<br/>
 <img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-viewtriggers.png" width="350"/><br/><br/>
-Step 2 — Full trigger info with actions<br/>
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-triggerdetail.jpeg" width="350"/>
+
+**Step 2 — Full trigger info with actions**<br/>
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-triggerdetail.png" width="350"/>
+
 </div>
 
-Edit Embed
-Customize the embed shown when a role is assigned or removed. Supports dynamic placeholders like {user.name}, {guild.icon}, {role.mention}, {timestamp}, and more — with a live preview toggle.
+---
+
+#### Edit Embed
+
+Customize the embed shown when a role is assigned or removed. Supports dynamic placeholders like `{user.name}`, `{guild.icon}`, `{role.mention}`, `{timestamp}`, and more — with a live preview toggle.
+
 <div align="center">
-<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-editembed.jpeg" width="350"/>
+
+<img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-editembed.png" width="350"/>
+
 </div>
 
-Delete Trigger
+---
+
+#### Delete Trigger
+
 Select a trigger from the dropdown to delete it. Shows full trigger details and an irreversibility warning before you confirm.
+
 <div align="center">
-Step 1 — Select a trigger to delete<br/>
+
+**Step 1 — Select a trigger to delete**<br/>
 <img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-deletepanel.png" width="350"/><br/><br/>
-Step 2 — Trigger details + warning before confirm<br/>
+
+**Step 2 — Trigger details + warning before confirm**<br/>
 <img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-deleteconfirm.png" width="350"/>
+
 </div>
 
-Add Trigger
-Select a role from the paginated dropdown, set a trigger name via modal — done. The command j.<triggername> @user is immediately usable.
+---
+
+#### Add Trigger
+
+Select a role from the paginated dropdown, set a trigger name via modal — done. The command `j.<triggername> @user` is immediately usable.
+
 <div align="center">
-Step 1 — Select a role<br/>
+
+**Step 1 — Select a role**<br/>
 <img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-addrole.png" width="350"/><br/><br/>
-Step 2 — Enter trigger name<br/>
+
+**Step 2 — Enter trigger name**<br/>
 <img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-settrigger.png" width="350"/><br/><br/>
-Step 3 — Trigger created<br/>
+
+**Step 3 — Trigger created**<br/>
 <img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/managecustomrole-created.png" width="350"/>
+
 </div>
 
-Custom Role Panel — j.customrolepanel @member
-Permission: Manage Roles
+---
+
+### Custom Role Panel — `j.customrolepanel @member`
+
+**Permission:** Manage Roles
+
 Assign or remove any configured role trigger for a member — no need to know the trigger name. The bot auto-detects whether to assign or remove based on the member's current roles.
+
 <div align="center">
+
 <img src="https://raw.githubusercontent.com/jupritual/Jupritual-Bot/main/assets/customrolepanel.png" width="350"/>
+
 </div>
+
+</details>
 
 </details>
 
