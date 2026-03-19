@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jupritual — Discord Bot</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg2: #111111;
+    --border: #1f1f1f;
+    --border2: #2a2a2a;
+    --text: #e2e2e2;
+    --muted: #555;
+    --muted2: #888;
+    --accent: #E0218A;
+    --accent-dim: rgba(224,33,138,0.1);
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'Geist', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── Nav ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 52px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 13px; font-weight: 500;
+    text-decoration: none; color: var(--text); letter-spacing: -0.3px;
+  }
+
+  .nav-logo img { width: 22px; height: 22px; border-radius: 50%; }
+
+  .nav-links { display: flex; gap: 0; }
+
+  .nav-links a {
+    font-family: var(--mono); font-size: 11px; font-weight: 400;
+    color: var(--muted); text-decoration: none;
+    padding: 6px 14px; border-radius: 4px;
+    transition: color 0.15s;
+    letter-spacing: 0.3px;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-cta {
+    font-family: var(--mono) !important;
+    font-size: 11px !important;
+    color: var(--accent) !important;
+    border: 1px solid rgba(224,33,138,0.3) !important;
+    border-radius: 4px !important;
+  }
+  .nav-cta:hover { background: var(--accent-dim) !important; color: var(--accent) !important; }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 140px 40px 100px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hero-line {
+    font-family: var(--mono); font-size: 11px; font-weight: 400;
+    color: var(--muted); letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 28px;
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .hero-line::before {
+    content: '';
+    display: block; width: 24px; height: 1px;
+    background: var(--muted);
+  }
+
+  .hero h1 {
+    font-size: clamp(44px, 7vw, 80px);
+    font-weight: 700;
+    letter-spacing: -3px;
+    line-height: 1;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 15px; color: var(--muted2);
+    max-width: 480px; line-height: 1.7;
+    font-weight: 300; margin-bottom: 40px;
+  }
+
+  .hero-sub strong { color: var(--text); font-weight: 500; }
+
+  .hero-buttons {
+    display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 56px;
+  }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: var(--mono); font-size: 12px; font-weight: 400;
+    padding: 9px 18px; border-radius: 4px;
+    text-decoration: none; transition: all 0.15s;
+    letter-spacing: 0.2px;
+  }
+
+  .btn-primary {
+    background: var(--accent); color: white;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+
+  .btn-ghost {
+    color: var(--muted2);
+    border: 1px solid var(--border2);
+    background: transparent;
+  }
+  .btn-ghost:hover { color: var(--text); border-color: var(--muted); }
+
+  .hero-meta {
+    display: flex; gap: 32px; flex-wrap: wrap;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+
+  .meta-num {
+    font-family: var(--mono); font-size: 22px; font-weight: 500;
+    color: var(--text); letter-spacing: -1px;
+  }
+  .meta-label {
+    font-family: var(--mono); font-size: 10px; color: var(--muted);
+    letter-spacing: 1px; text-transform: uppercase; margin-top: 3px;
+  }
+
+  /* ── Divider ── */
+  .div-full {
+    border: none; border-top: 1px solid var(--border);
+  }
+
+  /* ── Stack ── */
+  .stack-row {
+    max-width: 900px; margin: 0 auto;
+    padding: 20px 40px;
+    display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  }
+
+  .stack-label {
+    font-family: var(--mono); font-size: 10px; color: var(--muted);
+    letter-spacing: 1.5px; text-transform: uppercase; margin-right: 8px;
+  }
+
+  .stack-item {
+    font-family: var(--mono); font-size: 11px; color: var(--muted2);
+    padding: 3px 8px; border: 1px solid var(--border);
+    border-radius: 3px; background: var(--bg2);
+  }
+
+  /* ── Section ── */
+  section {
+    max-width: 900px; margin: 0 auto;
+    padding: 72px 40px;
+  }
+
+  .section-eyebrow {
+    font-family: var(--mono); font-size: 10px;
+    color: var(--muted); letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-eyebrow::before {
+    content: ''; display: block;
+    width: 16px; height: 1px; background: var(--muted);
+  }
+
+  .section-title {
+    font-size: clamp(24px, 3.5vw, 36px);
+    font-weight: 600; letter-spacing: -1.2px;
+    margin-bottom: 8px;
+  }
+
+  .section-sub {
+    font-size: 14px; color: var(--muted2);
+    font-weight: 300; line-height: 1.6; margin-bottom: 44px;
+  }
+
+  /* ── Features list ── */
+  .feature-list {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 6px; overflow: hidden;
+  }
+
+  .feature-item {
+    padding: 20px 22px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+
+  .feature-item:nth-child(2n) { border-right: none; }
+  .feature-item:nth-last-child(-n+2) { border-bottom: none; }
+  .feature-item:hover { background: var(--bg2); }
+
+  .fi-top {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 7px;
+  }
+
+  .fi-icon { font-size: 14px; }
+
+  .fi-name {
+    font-size: 13px; font-weight: 600; letter-spacing: -0.3px;
+  }
+
+  .fi-desc {
+    font-size: 12px; color: var(--muted2);
+    line-height: 1.55; font-weight: 300;
+  }
+
+  .fi-cmds {
+    display: flex; flex-wrap: wrap; gap: 4px; margin-top: 10px;
+  }
+
+  .fi-cmd {
+    font-family: var(--mono); font-size: 10px;
+    color: var(--muted); background: var(--bg2);
+    border: 1px solid var(--border); border-radius: 3px;
+    padding: 2px 6px;
+  }
+
+  /* ── Docs ── */
+  .docs-section { display: flex; flex-direction: column; gap: 44px; }
+
+  .doc-cat-head {
+    display: flex; align-items: baseline; gap: 10px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 12px;
+  }
+
+  .doc-cat-icon { font-size: 13px; }
+
+  .doc-cat-name {
+    font-size: 13px; font-weight: 600; letter-spacing: -0.3px;
+  }
+
+  .doc-cat-count {
+    font-family: var(--mono); font-size: 10px;
+    color: var(--muted); margin-left: auto;
+  }
+
+  /* ── Command accordion ── */
+  .cmd {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 6px;
+    overflow: hidden;
+  }
+
+  .cmd-head {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 16px;
+    cursor: pointer;
+    transition: background 0.15s;
+    user-select: none;
+    background: var(--bg);
+  }
+
+  .cmd-head:hover { background: var(--bg2); }
+
+  .cmd-name {
+    font-family: var(--mono); font-size: 12px; font-weight: 500;
+    color: var(--accent);
+  }
+
+  .cmd-args {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--muted); font-weight: 300;
+    flex: 1;
+  }
+
+  .cmd-chevron {
+    font-family: var(--mono); font-size: 10px;
+    color: var(--muted);
+    transition: transform 0.2s;
+  }
+
+  .cmd.open .cmd-chevron { transform: rotate(180deg); }
+
+  .cmd-body {
+    display: none;
+    padding: 14px 16px 16px;
+    border-top: 1px solid var(--border);
+    background: var(--bg2);
+  }
+
+  .cmd.open .cmd-body { display: block; }
+
+  .cmd-desc {
+    font-size: 12px; color: var(--muted2);
+    line-height: 1.6; font-weight: 300; margin-bottom: 14px;
+  }
+
+  .shots {
+    display: flex; gap: 8px; flex-wrap: wrap;
+  }
+
+  .shot { display: flex; flex-direction: column; gap: 4px; }
+
+  .shot-label {
+    font-family: var(--mono); font-size: 9px;
+    color: var(--muted); letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .shot img {
+    width: 200px; border-radius: 5px;
+    border: 1px solid var(--border2);
+    transition: border-color 0.15s, transform 0.15s;
+    cursor: zoom-in;
+  }
+
+  .shot img:hover {
+    border-color: var(--accent);
+    transform: scale(1.02);
+  }
+
+  /* ── Infra ── */
+  .infra-table {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .infra-row {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .infra-row:last-child { border-bottom: none; }
+  .infra-row:hover .infra-val { color: var(--text); }
+
+  .infra-key {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--muted); font-weight: 400;
+    padding: 13px 20px; width: 200px;
+    border-right: 1px solid var(--border);
+    background: var(--bg2);
+    letter-spacing: 0.3px;
+  }
+
+  .infra-val {
+    font-family: var(--mono); font-size: 12px;
+    color: var(--muted2); font-weight: 400;
+    padding: 13px 20px; flex: 1;
+    transition: color 0.15s;
+  }
+
+  /* ── CTA ── */
+  .cta {
+    max-width: 900px; margin: 0 auto;
+    padding: 72px 40px 80px;
+    border-top: 1px solid var(--border);
+  }
+
+  .cta h2 {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700; letter-spacing: -2px;
+    margin-bottom: 10px;
+  }
+
+  .cta p { font-size: 14px; color: var(--muted2); margin-bottom: 28px; font-weight: 300; }
+
+  .cta-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  /* ── Lightbox ── */
+  .lb {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: rgba(0,0,0,0.92);
+    align-items: center; justify-content: center;
+    cursor: zoom-out;
+  }
+  .lb.on { display: flex; }
+  .lb img { max-width: 88vw; max-height: 88vh; border-radius: 6px; }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 20px 40px;
+    font-family: var(--mono); font-size: 10px;
+    color: var(--muted); letter-spacing: 0.5px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 8px;
+  }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border2); }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 20px 60px; }
+    section { padding: 52px 20px; }
+    .stack-row, .cta { padding-left: 20px; padding-right: 20px; }
+    .feature-list { grid-template-columns: 1fr; }
+    .feature-item:nth-child(2n) { border-right: 1px solid var(--border); }
+    .feature-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .feature-item:last-child { border-bottom: none; }
+    .shot img { width: 155px; }
+    .infra-key { width: 130px; }
+    footer { padding: 16px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Lightbox -->
+<div class="lb" id="lb" onclick="closeLb()">
+  <img id="lb-img" src="" alt=""/>
+</div>
+
+<!-- Nav -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="assets/avatar.png" alt=""/>
+    jupritual
+  </a>
+  <div class="nav-links">
+    <a href="#features">features</a>
+    <a href="#docs">docs</a>
+    <a href="#stack">stack</a>
+    <a href="https://discord.com/oauth2/authorize?client_id=1245248139699556394" class="nav-cta">invite →</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-line">Discord Bot · Built by divyam</div>
+  <h1>Jupritual<em>.</em></h1>
+  <p class="hero-sub">
+    A <strong>production-grade</strong> Discord bot built solo from scratch.
+    146+ commands, modular architecture, cloud-deployed 24/7.
+    Not a template. Every line written by hand.
+  </p>
+  <div class="hero-buttons">
+    <a href="https://discord.com/oauth2/authorize?client_id=1245248139699556394" class="btn btn-primary">→ Invite to Server</a>
+    <a href="https://top.gg/bot/1245248139699556394?s=071b865a14137" class="btn btn-ghost">Top.gg</a>
+    <a href="https://github.com/jupritual/Jupritual-Bot" class="btn btn-ghost">GitHub</a>
+  </div>
+  <div class="hero-meta">
+    <div class="meta-item"><div class="meta-num">146+</div><div class="meta-label">commands</div></div>
+    <div class="meta-item"><div class="meta-num">11</div><div class="meta-label">cogs</div></div>
+    <div class="meta-item"><div class="meta-num">24/7</div><div class="meta-label">uptime</div></div>
+    <div class="meta-item"><div class="meta-num">50+</div><div class="meta-label">roleplay</div></div>
+  </div>
+</div>
+
+<hr class="div-full"/>
+
+<!-- Stack -->
+<div class="stack-row" id="stack">
+  <span class="stack-label">stack</span>
+  <span class="stack-item">python 3.10+</span>
+  <span class="stack-item">discord.py 2.x</span>
+  <span class="stack-item">mongodb atlas</span>
+  <span class="stack-item">motor async</span>
+  <span class="stack-item">oracle cloud</span>
+  <span class="stack-item">systemd</span>
+</div>
+
+<hr class="div-full"/>
+
+<!-- Features -->
+<section id="features">
+  <div class="section-eyebrow">features</div>
+  <h2 class="section-title">Every system, built from scratch.</h2>
+  <p class="section-sub">No copied cogs. No boilerplate. Designed, coded, debugged independently.</p>
+
+  <div class="feature-list">
+    <div class="feature-item">
+      <div class="fi-top"><span class="fi-icon">🛡️</span><span class="fi-name">Moderation Suite</span></div>
+      <div class="fi-desc">Ban, kick, timeout, warn, purge — plus vote-based moderation and silent variants. Confirmation flows, mod logs, DM toggles on every action.</div>
+      <div class="fi-cmds"><span class="fi-cmd">j.ban</span><span class="fi-cmd">j.voteban</span><span class="fi-cmd">j.warn</span><span class="fi-cmd">j.purge</span></div>
+    </div>
+    <div class="feature-item">
+      <div class="fi-top"><span class="fi-icon">🎭</span><span class="fi-name">Custom Role System</span></div>
+      <div class="fi-desc">Trigger-based role commands. Fully customizable assign/remove embeds per trigger with 10+ dynamic placeholders and live preview.</div>
+      <div class="fi-cmds"><span class="fi-cmd">j.managecustomrole</span><span class="fi-cmd">j.customrolepanel</span></div>
+    </div>
+    <div class="feature-item">
+      <div class="fi-top"><span class="fi-icon">💤</span><span class="fi-name">AFK System</span></div>
+      <div class="fi-desc">Global & local modes, drop notes, notify-on-return, welcome back summaries, privacy settings, leaderboard and stats.</div>
+      <div class="fi-cmds"><span class="fi-cmd">j.afk</span><span class="fi-cmd">j.afklist</span><span class="fi-cmd">j.afkstats</span></div>
+    </div>
+    <div class="feature-item">
+      <div class="fi-top"><span class="fi-icon">🎉</span><span class="fi-name">Welcome System</span></div>
+      <div class="fi-desc">Join/leave/DM embeds with designer, 30+ dynamic placeholders, auto-reactions, interactive buttons, live preview.</div>
+      <div class="fi-cmds"><span class="fi-cmd">j.welcomesystem</span></div>
+    </div>
+    <div class="feature-item">
+      <div class="fi-top"><span class="fi-icon">📋</span><span class="fi-name">Logging System</span></div>
+      <div class="fi-desc">Per-action log routing to independent channels. Moderator activity summaries, action counts, auto-purge after 90 days.</div>
+      <div class="fi-cmds"><span class="fi-cmd">j.setlogging</span><span class="fi-cmd">j.modlogs</span></div>
+    </div>
+    <div class="feature-item">
+      <div class="fi-top"><span class="fi-icon">🤖</span><span class="fi-name">Auto-Reaction Engine</span></div>
+      <div class="fi-desc">Rule-based emoji reactions. Contains/starts/ends/exact match. Per-channel, per-user, per-role restrictions. Up to 20 rules.</div>
+      <div class="fi-cmds"><span class="fi-cmd">j.autoreaction</span></div>
+    </div>
+    <div class="feature-item">
+      <div class="fi-top"><span class="fi-icon">⚠️</span><span class="fi-name">Warning System</span></div>
+      <div class="fi-desc">Infraction point tracking with unique IDs. Auto-actions at thresholds. Point decay, leaderboard, full warn history per member.</div>
+      <div class="fi-cmds"><span class="fi-cmd">j.warn</span><span class="fi-cmd">j.setwarnaction</span><span class="fi-cmd">j.checkwarns</span></div>
+    </div>
+    <div class="feature-item">
+      <div class="fi-top"><span class="fi-icon">⚙️</span><span class="fi-name">Toggles & Config</span></div>
+      <div class="fi-desc">Enable/disable any command per-channel or server-wide. Dynamic prefix per guild. DM toggle for mod actions.</div>
+      <div class="fi-cmds"><span class="fi-cmd">j.disable</span><span class="fi-cmd">j.svdisable</span><span class="fi-cmd">j.prefix</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="div-full"/>
+
+<!-- Docs -->
+<section id="docs">
+  <div class="section-eyebrow">screenshots & docs</div>
+  <h2 class="section-title">See it in action.</h2>
+  <p class="section-sub">Click any command to expand. Click any screenshot to zoom.</p>
+
+  <div class="docs-section">
+
+    <!-- Vote Mod -->
+    <div class="doc-cat">
+      <div class="doc-cat-head">
+        <span class="doc-cat-icon">🗳️</span>
+        <span class="doc-cat-name">Vote-Based Moderation</span>
+        <span class="doc-cat-count">3 cmds</span>
+      </div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.voteban</span><span class="cmd-args">@user [duration] [mode] [reason]</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><p class="cmd-desc">Starts a timed vote to ban a member. Requires majority upvotes from mods to execute.</p><div class="shots"><div class="shot"><span class="shot-label">vote in progress</span><img src="assets/voteban-progress.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">ban executed</span><img src="assets/voteban-success.png" onclick="openLb(this)" alt=""/></div></div></div></div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.voteunban</span><span class="cmd-args">@user [duration] [mode] [reason]</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><p class="cmd-desc">Starts a vote to lift an existing ban. Mods vote, majority wins.</p><div class="shots"><div class="shot"><span class="shot-label">vote in progress</span><img src="assets/voteunban-progress.jpeg" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">unban executed</span><img src="assets/voteunban-success.jpeg" onclick="openLb(this)" alt=""/></div></div></div></div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.votekick</span><span class="cmd-args">@user [duration] [mode] [reason]</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><p class="cmd-desc">Vote to kick a member. If majority isn't reached — kick is cancelled automatically.</p><div class="shots"><div class="shot"><span class="shot-label">vote in progress</span><img src="assets/votekick-progress.jpeg" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">kick failed</span><img src="assets/votekick-failed.png" onclick="openLb(this)" alt=""/></div></div></div></div>
+    </div>
+
+    <!-- Mod Tools -->
+    <div class="doc-cat">
+      <div class="doc-cat-head">
+        <span class="doc-cat-icon">🔧</span>
+        <span class="doc-cat-name">Moderation Tools</span>
+        <span class="doc-cat-count">4 cmds</span>
+      </div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.timeoutlist</span><span class="cmd-args">view all timed out members</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><p class="cmd-desc">View all currently timed out members with time remaining — select any from the dropdown to manage.</p><div class="shots"><div class="shot"><span class="shot-label">overview</span><img src="assets/timeoutlist-overview.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">dropdown</span><img src="assets/timeoutlist-dropdown.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">details</span><img src="assets/timeoutlist-details.jpeg" onclick="openLb(this)" alt=""/></div></div></div></div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.locklist</span><span class="cmd-args">view all locked channels</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><p class="cmd-desc">View all locked channels with dropdown navigation and unlock options.</p><div class="shots"><div class="shot"><span class="shot-label">overview</span><img src="assets/locklist-overview.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">dropdown</span><img src="assets/locklist-dropdown.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">details</span><img src="assets/locklist-details.png" onclick="openLb(this)" alt=""/></div></div></div></div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.purge</span><span class="cmd-args">[filter] [amount]</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><p class="cmd-desc">Delete messages with powerful filters. Confirmation + live preview before deleting.</p><div class="shots"><div class="shot"><span class="shot-label">confirm + preview</span><img src="assets/purge-confirm.jpeg" onclick="openLb(this)" alt=""/></div></div></div></div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.snipe</span><span class="cmd-args">[number]</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><p class="cmd-desc">Recover recently deleted messages — content, sender, who deleted it.</p><div class="shots"><div class="shot"><img src="assets/snipe.jpeg" onclick="openLb(this)" alt=""/></div></div></div></div>
+    </div>
+
+    <!-- Warns -->
+    <div class="doc-cat">
+      <div class="doc-cat-head">
+        <span class="doc-cat-icon">⚠️</span>
+        <span class="doc-cat-name">Warning System</span>
+        <span class="doc-cat-count">6 cmds</span>
+      </div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.warn</span><span class="cmd-args">@user [points] [reason]</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><p class="cmd-desc">Warn with custom infraction points. Each warn gets a unique ID.</p><div class="shots"><div class="shot"><img src="assets/warn.jpeg" onclick="openLb(this)" alt=""/></div></div></div></div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.setwarnaction</span><span class="cmd-args">auto-actions at point thresholds</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><p class="cmd-desc">Set automated actions that trigger when a member hits a points threshold — timeout, kick, ban, role.</p><div class="shots"><div class="shot"><span class="shot-label">overview</span><img src="assets/setwarnaction-overview.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">guide</span><img src="assets/setwarnaction-guide.jpeg" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">dropdown</span><img src="assets/setwarnaction-dropdown.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">modal</span><img src="assets/setwarnaction-modal.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">success</span><img src="assets/setwarnaction-success.png" onclick="openLb(this)" alt=""/></div></div></div></div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.warnleaderboard</span><span class="cmd-args">most warned members</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><div class="shots"><div class="shot"><img src="assets/warnleaderboard.png" onclick="openLb(this)" alt=""/></div></div></div></div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.checkwarns</span><span class="cmd-args">@user</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><p class="cmd-desc">Full warning history — IDs, points, reason, moderator, date, active/expired.</p><div class="shots"><div class="shot"><img src="assets/checkwarns.png" onclick="openLb(this)" alt=""/></div></div></div></div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.removewarn</span><span class="cmd-args">[infraction ID]</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><div class="shots"><div class="shot"><img src="assets/removewarn.png" onclick="openLb(this)" alt=""/></div></div></div></div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.removepoints</span><span class="cmd-args">@user [points]</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><div class="shots"><div class="shot"><img src="assets/removepoints.png" onclick="openLb(this)" alt=""/></div></div></div></div>
+    </div>
+
+    <!-- Welcome -->
+    <div class="doc-cat">
+      <div class="doc-cat-head">
+        <span class="doc-cat-icon">🎉</span>
+        <span class="doc-cat-name">Welcome System</span>
+        <span class="doc-cat-count">1 cmd</span>
+      </div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.welcomesystem</span><span class="cmd-args">full join/leave/DM config</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><p class="cmd-desc">Embed designer, 30+ dynamic placeholders, auto-reactions, interactive buttons, live preview. Leave and DM follow same flow.</p><div class="shots"><div class="shot"><span class="shot-label">dashboard</span><img src="assets/welcome-dashboard.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">channel</span><img src="assets/welcome-step1-channel.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">designer</span><img src="assets/welcome-step2-designer.jpeg" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">reactions</span><img src="assets/welcome-step3-reactions.jpeg" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">buttons</span><img src="assets/welcome-step4-buttons.jpeg" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">review</span><img src="assets/welcome-step5-review.jpeg" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">placeholders</span><img src="assets/welcome-placeholders.jpeg" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">stats</span><img src="assets/welcome-stats.jpeg" onclick="openLb(this)" alt=""/></div></div></div></div>
+    </div>
+
+    <!-- Logging -->
+    <div class="doc-cat">
+      <div class="doc-cat-head">
+        <span class="doc-cat-icon">📋</span>
+        <span class="doc-cat-name">Logging System</span>
+        <span class="doc-cat-count">2 cmds</span>
+      </div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.setlogging</span><span class="cmd-args">route each action to its own channel</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><div class="shots"><div class="shot"><span class="shot-label">config</span><img src="assets/setlogging-config.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">channel select</span><img src="assets/setlogging-channel.png" onclick="openLb(this)" alt=""/></div></div></div></div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.modlogs</span><span class="cmd-args">@moderator</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><p class="cmd-desc">Full mod history for any moderator — action counts, dropdown navigation, detailed entries.</p><div class="shots"><div class="shot"><span class="shot-label">summary</span><img src="assets/modlogs-overview.jpeg" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">dropdown</span><img src="assets/modlogs-dropdown.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">detail</span><img src="assets/modlogs-detail.jpeg" onclick="openLb(this)" alt=""/></div></div></div></div>
+    </div>
+
+    <!-- AFK -->
+    <div class="doc-cat">
+      <div class="doc-cat-head">
+        <span class="doc-cat-icon">💤</span>
+        <span class="doc-cat-name">AFK System</span>
+        <span class="doc-cat-count">3 cmds</span>
+      </div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.afk</span><span class="cmd-args">[reason]</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><p class="cmd-desc">Global or local AFK mode. Others can drop notes or subscribe to notify-on-return. Welcome back summary shows pings + notes.</p><div class="shots"><div class="shot"><span class="shot-label">mode select</span><img src="assets/afk-settings.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">afk set</span><img src="assets/afk-set.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">welcome back</span><img src="assets/afk-welcomeback.jpeg" onclick="openLb(this)" alt=""/></div></div></div></div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.afklist</span><span class="cmd-args">all currently afk members</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><div class="shots"><div class="shot"><img src="assets/afk-list.jpeg" onclick="openLb(this)" alt=""/></div></div></div></div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.afkstats</span><span class="cmd-args">[@user]</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><div class="shots"><div class="shot"><img src="assets/afk-stats.png" onclick="openLb(this)" alt=""/></div></div></div></div>
+    </div>
+
+    <!-- Auto Reaction -->
+    <div class="doc-cat">
+      <div class="doc-cat-head">
+        <span class="doc-cat-icon">🤖</span>
+        <span class="doc-cat-name">Auto-Reaction System</span>
+        <span class="doc-cat-count">1 cmd</span>
+      </div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.autoreaction</span><span class="cmd-args">rule-based emoji reactions</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><p class="cmd-desc">Create rules that trigger emoji reactions on messages. Contains/starts/ends/exact matching. Channel, user, role restrictions. Cooldowns. Up to 20 active rules.</p><div class="shots"><div class="shot"><span class="shot-label">trigger</span><img src="assets/autoreaction-step1-trigger.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">match type</span><img src="assets/autoreaction-step2-matchtype.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">reactions</span><img src="assets/autoreaction-step3-reactions.jpeg" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">channels</span><img src="assets/autoreaction-step4-channels.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">users</span><img src="assets/autoreaction-step5-users.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">advanced</span><img src="assets/autoreaction-step6-advanced.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">review</span><img src="assets/autoreaction-step7-review.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">list rules</span><img src="assets/autoreaction-listrules.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">manage</span><img src="assets/autoreaction-manage.jpeg" onclick="openLb(this)" alt=""/></div></div></div></div>
+    </div>
+
+    <!-- Toggles -->
+    <div class="doc-cat">
+      <div class="doc-cat-head">
+        <span class="doc-cat-icon">⚙️</span>
+        <span class="doc-cat-name">Toggles & Restrictions</span>
+        <span class="doc-cat-count">5 cmds</span>
+      </div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.dmtoggle</span><span class="cmd-args">toggle DMs for mod actions</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><div class="shots"><div class="shot"><img src="assets/dmtoggle.png" onclick="openLb(this)" alt=""/></div></div></div></div>
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.svdisable</span><span class="cmd-args">[command] — server-wide disable</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><div class="shots"><div class="shot"><img src="assets/svdisable.png" onclick="openLb(this)" alt=""/></div></div></div></div>
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.disable</span><span class="cmd-args">[command] — channel disable</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><div class="shots"><div class="shot"><img src="assets/disable.png" onclick="openLb(this)" alt=""/></div></div></div></div>
+    </div>
+
+    <!-- Custom Role -->
+    <div class="doc-cat">
+      <div class="doc-cat-head">
+        <span class="doc-cat-icon">🎭</span>
+        <span class="doc-cat-name">Custom Role System</span>
+        <span class="doc-cat-count">2 cmds</span>
+      </div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.managecustomrole</span><span class="cmd-args">control panel for all role triggers</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><p class="cmd-desc">Central hub for viewing, adding, and deleting role triggers. Aliases: j.cr, j.customrolemanage — Permission: Administrator</p><div class="shots"><div class="shot"><span class="shot-label">control panel</span><img src="assets/managecustomrole-panel.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">view triggers</span><img src="assets/managecustomrole-viewtriggers.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">trigger detail</span><img src="assets/managecustomrole-triggerdetail.jpeg" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">edit embed</span><img src="assets/managecustomrole-editembed.jpeg" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">delete panel</span><img src="assets/managecustomrole-deletepanel.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">delete confirm</span><img src="assets/managecustomrole-deleteconfirm.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">add — role</span><img src="assets/managecustomrole-addrole.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">add — trigger</span><img src="assets/managecustomrole-settrigger.png" onclick="openLb(this)" alt=""/></div><div class="shot"><span class="shot-label">created</span><img src="assets/managecustomrole-created.png" onclick="openLb(this)" alt=""/></div></div></div></div>
+
+      <div class="cmd"><div class="cmd-head" onclick="toggle(this)"><span class="cmd-name">j.customrolepanel</span><span class="cmd-args">@member</span><span class="cmd-chevron">▾</span></div><div class="cmd-body"><p class="cmd-desc">Assign or remove any role trigger for a member. Auto-detects assign vs remove. Permission: Manage Roles.</p><div class="shots"><div class="shot"><img src="assets/customrolepanel.png" onclick="openLb(this)" alt=""/></div></div></div></div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="div-full"/>
+
+<!-- Infra -->
+<section id="infra">
+  <div class="section-eyebrow">infrastructure</div>
+  <h2 class="section-title">Production stack.</h2>
+  <p class="section-sub">Every layer chosen for reliability and zero cost.</p>
+
+  <div class="infra-table">
+    <div class="infra-row"><div class="infra-key">language</div><div class="infra-val">Python 3.10+</div></div>
+    <div class="infra-row"><div class="infra-key">discord library</div><div class="infra-val">discord.py 2.x (prefix commands)</div></div>
+    <div class="infra-row"><div class="infra-key">database</div><div class="infra-val">MongoDB Atlas + motor async driver</div></div>
+    <div class="infra-row"><div class="infra-key">hosting</div><div class="infra-val">Oracle Cloud Always Free (Ubuntu VM)</div></div>
+    <div class="infra-row"><div class="infra-key">process</div><div class="infra-val">systemd service with auto-restart</div></div>
+    <div class="infra-row"><div class="infra-key">version control</div><div class="infra-val">GitHub + git pull deploy</div></div>
+    <div class="infra-row"><div class="infra-key">bot listing</div><div class="infra-val">Top.gg ✓ Approved</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>Add Jupritual.</h2>
+  <p>146+ commands. Free. Deployed 24/7.</p>
+  <div class="cta-btns">
+    <a href="https://discord.com/oauth2/authorize?client_id=1245248139699556394" class="btn btn-primary">→ Invite to Server</a>
+    <a href="https://top.gg/bot/1245248139699556394?s=071b865a14137" class="btn btn-ghost">Top.gg</a>
+  </div>
+</div>
+
+<footer>
+  <span>jupritual · built by divyam</span>
+  <span>python · discord.py · mongodb · oracle cloud</span>
+</footer>
+
+<script>
+  function toggle(head) {
+    head.closest('.cmd').classList.toggle('open');
+  }
+  function openLb(img) {
+    document.getElementById('lb-img').src = img.src;
+    document.getElementById('lb').classList.add('on');
+  }
+  function closeLb() {
+    document.getElementById('lb').classList.remove('on');
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+</script>
+</body>
+</html>
