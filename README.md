@@ -182,6 +182,8 @@ jupritual/
 
 <summary><b>📸 Click to expand screenshots</b></summary>
 
+---
+
 <details>
 <summary><b>🗳️ Vote-Based Moderation</b></summary>
 
