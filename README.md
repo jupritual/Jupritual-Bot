@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/jupritual/Jupritual-bot/main/assets/avatar.png" width="80" height="80"/><br/><h1>Jupritual</h1>
 
-**A production-grade Discord moderation & automation bot — built solo from scratch.**
+**A powerful all-in-one Discord bot for moderation, automation, and server management.**
 
 [![Top.gg](https://img.shields.io/badge/Listed%20on-Top.gg-ff3366?style=for-the-badge&logo=discord&logoColor=white)](https://top.gg/bot/1245248139699556394?s=071b865a14137)
 [![Invite](https://img.shields.io/badge/Invite%20Jupritual-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/oauth2/authorize?client_id=1245248139699556394)
@@ -11,7 +11,7 @@
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://mongodb.com)
 [![Oracle Cloud](https://img.shields.io/badge/Deployed-Oracle%20Cloud-F80000?style=for-the-badge&logo=oracle&logoColor=white)](https://oracle.com/cloud)
 
-> *146+ commands. Modular architecture. Cloud-deployed. Built by divyam.*
+> 146+ commands • Modular architecture • Cloud deployed • Verified Discord Bot
 
 </div>
 
@@ -19,9 +19,9 @@
 
 ## ✦ What is Jupritual?
 
-Jupritual is not a template bot. It is a **fully custom Discord bot** built from the ground up using Python and discord.py — every system, every embed, every interaction flow designed and coded by hand.
+Jupritual is an all-in-one Discord bot designed to help server owners manage, automate, and enhance their communities.
 
-It combines advanced moderation tooling, server automation, a dynamic role system, and a structured help registry into a single production-ready bot — deployed 24/7 on Oracle Cloud infrastructure.
+It combines moderation tools, automation systems, role management, and utility features into a single reliable and scalable solution.
 
 ---
 
@@ -729,16 +729,6 @@ Assign or remove any configured role trigger for a member — no need to know th
 [![Support Server](https://img.shields.io/badge/Support%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/fB42jHFHKB)
 
 </div>
-
----
-
-## ✦ About
-
-Jupritual is independently developed and maintained by a solo developer
-with a focus on production-quality architecture, real-world deployment,
-and continuously expanding features.
-
-This bot is not a fork. Not a tutorial project. Every system was designed, built, debugged, and deployed independently.
 
 ---
 
